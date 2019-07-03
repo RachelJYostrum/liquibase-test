@@ -1,0 +1,3 @@
+databaseChangeLog:
+    - changeLogFile:
+        file: changes/create_users.yaml
