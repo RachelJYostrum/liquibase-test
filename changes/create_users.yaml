@@ -18,3 +18,7 @@ databaseChangeLog:
             - column:
               name: dob
               type: date
+            - column:
+              name: email
+              type: varchar(150)
+              
