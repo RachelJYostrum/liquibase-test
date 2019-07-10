@@ -9,13 +9,12 @@ databaseChangeLog:
               - column:
                 name: title
                 type: varchar(250)
-            - column:
+              - column:
                 name: author
                 type: varchar(100)
-            - column:
+              - column:
                 name: date_published
                 type: date
-            - column:
+              - column:
                 name: publisher
                 type: varchar(250)
-                
