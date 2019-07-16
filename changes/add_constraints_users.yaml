@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: ryostrum
+      changes:
+        ALTER TABLE users
+          ADD CONSTRAINT users_pk PRIMARY KEY (id);
+        ALTER TABLE users
+          ADD UNIQUE (phone_number);
+        ALTER TABLE users
+          ADD UNIQUE (username);  

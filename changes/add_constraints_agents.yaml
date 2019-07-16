@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: ryostrum
+      changes:
+        ALTER TABLE agents
+          ADD CONSTRAINT agents_pk PRIMARY KEY (id);
+        ALTER TABLE agents
+          ADD CONSTRAINT agents_user_fk FOREIGN KEY (user_id)
+          REFERENCES users (id) MATCH SIMPLE
+            ON UPDATE NO ACTION ON DELETE NO ACTION;
+        ALTER TABLE agents
+          ADD CONSTRAINT agents_marketingGroup_fk FOREIGN KEY (marketing_group_id)
+          REFERENCES marketingGroup (id) MATCH SIMPLE
+            ON UPDATE NO ACTION ON DELETE NO ACTION;

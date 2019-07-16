@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: ryostrum
+      changes:
+        ALTER TABLE marketingGroup
+          ADD CONSTRAINT marketingGroup_pk PRIMARY KEY (id);
+        ALTER TABLE marketingGroup
+          ADD UNIQUE (buisness_name);
