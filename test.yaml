@@ -1,0 +1,349 @@
+databaseChangeLog:
+- changeSet:
+    id: 1563380972177-6
+    author: ajohn (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+              primaryKeyName: agents_pkey
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_by
+            type: UUID
+        - column:
+            name: city
+            type: VARCHAR(255)
+        - column:
+            name: address_line_one
+            type: VARCHAR(255)
+        - column:
+            name: address_line_two
+            type: VARCHAR(255)
+        - column:
+            name: state
+            type: VARCHAR(255)
+        - column:
+            name: zip_code
+            type: VARCHAR(5)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: first_name
+            type: VARCHAR(255)
+        - column:
+            name: last_name
+            type: VARCHAR(255)
+        - column:
+            name: marketing_group_id
+            type: UUID
+        - column:
+            name: user_id
+            type: UUID
+        tableName: agents
+- changeSet:
+    id: 1563380972177-7
+    author: ajohn (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              primaryKey: true
+              primaryKeyName: marketing_groups_pkey
+            name: id
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: created_by
+            type: UUID
+        - column:
+            constraints:
+              nullable: false
+            name: updated_at
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: updated_by
+            type: UUID
+        - column:
+            name: city
+            type: VARCHAR(255)
+        - column:
+            name: address_line_one
+            type: VARCHAR(255)
+        - column:
+            name: address_line_two
+            type: VARCHAR(255)
+        - column:
+            name: state
+            type: VARCHAR(255)
+        - column:
+            name: zip_code
+            type: VARCHAR(5)
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: fax
+            type: VARCHAR(255)
+        - column:
+            name: business_name
+            type: VARCHAR(100)
+        - column:
+            name: phone
+            type: VARCHAR(255)
+        tableName: marketing_groups
+- changeSet:
+    id: 1563380972177-8
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: id
+            type: uuid
+        tableName: users
+- changeSet:
+    id: 1563380972177-9
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: created_at
+            type: timestamp
+        tableName: users
+- changeSet:
+    id: 1563380972177-10
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: created_by
+            type: uuid
+        tableName: users
+- changeSet:
+    id: 1563380972177-11
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: updated_at
+            type: timestamp
+        tableName: users
+- changeSet:
+    id: 1563380972177-12
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: updated_by
+            type: uuid
+        tableName: users
+- changeSet:
+    id: 1563380972177-13
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: ip_address
+            type: varchar(255 BYTE)
+        tableName: users
+- changeSet:
+    id: 1563380972177-14
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: hash
+            type: varchar(255 BYTE)
+        tableName: users
+- changeSet:
+    id: 1563380972177-15
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: password
+            type: varchar(255 BYTE)
+        tableName: users
+- changeSet:
+    id: 1563380972177-16
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: phone_number
+            type: varchar(255 BYTE)
+        tableName: users
+- changeSet:
+    id: 1563380972177-17
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+            name: user_type
+            type: varchar(255 BYTE)
+        tableName: users
+- changeSet:
+    id: 1563380972177-18
+    author: ajohn (generated)
+    changes:
+    - addColumn:
+        columns:
+        - column:
+            name: schedule_id
+            type: uuid
+        tableName: users
+- changeSet:
+    id: 1563380972177-19
+    author: ajohn (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: business_name
+        constraintName: marketing_group_unique_business_name
+        tableName: marketing_groups
+- changeSet:
+    id: 1563380972177-20
+    author: ajohn (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: phone_number
+        constraintName: users_unique_phone_number
+        tableName: users
+- changeSet:
+    id: 1563380972177-21
+    author: ajohn (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: username
+        constraintName: users_unique_username
+        tableName: users
+- changeSet:
+    id: 1563380972177-22
+    author: ajohn (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: id
+        indexName: users_pkey
+        tableName: users
+        unique: true
+- changeSet:
+    id: 1563380972177-23
+    author: ajohn (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: marketing_group_id
+        baseTableName: agents
+        constraintName: agents_marketing_group_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: marketing_groups
+        validate: true
+- changeSet:
+    id: 1563380972177-24
+    author: ajohn (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: agents
+        constraintName: agents_user_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1563380972177-25
+    author: ajohn (generated)
+    changes:
+    - dropColumn:
+        columnName: dob
+        tableName: users
+- changeSet:
+    id: 1563380972177-1
+    author: ajohn (generated)
+    changes:
+    - modifyDataType:
+        columnName: email
+        newDataType: varchar(255)
+        tableName: users
+- changeSet:
+    id: 1563380972177-2
+    author: ajohn (generated)
+    changes:
+    - modifyDataType:
+        columnName: first_name
+        newDataType: varchar(255)
+        tableName: users
+- changeSet:
+    id: 1563380972177-3
+    author: ajohn (generated)
+    changes:
+    - modifyDataType:
+        columnName: last_name
+        newDataType: varchar(255)
+        tableName: users
+- changeSet:
+    id: 1563380972177-4
+    author: ajohn (generated)
+    changes:
+    - dropNotNullConstraint:
+        columnDataType: varchar(100)
+        columnName: username
+        tableName: users
+- changeSet:
+    id: 1563380972177-5
+    author: ajohn (generated)
+    changes:
+    - dropPrimaryKey:
+        tableName: users
+    - addPrimaryKey:
+        columnNames: id
+        constraintName: users_pkey
+        tableName: users
+
